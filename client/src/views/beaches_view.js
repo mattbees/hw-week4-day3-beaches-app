@@ -1,4 +1,3 @@
-const RequestHelper = require('../helpers/request_helper.js');
 const PubSub = require('../helpers/pub_sub.js');
 const Beaches = require('../models/beaches');
 
@@ -15,7 +14,7 @@ class BeachesView {
   };
 
   render(beaches) {
-    beaches.forEach((beach) => { // failing as objects are returned from POST, DELETE, 
+    beaches.forEach((beach) => { // failing as objects are returned from POST, DELETE,
       const card = this.createCard(beach);
       this.element.appendChild(card);
     });
@@ -45,6 +44,7 @@ class BeachesView {
     editButton.classList.add('ui', 'button');
     editButton.id = `edit_${beach.id}`;
     editButton.textContent = 'Edit';
+    this.addEditEvent(editButton, beach);
 
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('ui', 'button');
@@ -71,6 +71,11 @@ class BeachesView {
     });
   };
 
+  addEditEvent(button, beach) {
+    button.addEventListener('click', (event) => {
+      PubSub.publish('BeachesView:edit-beach-selected', beach.id)
+    });
+  };
 
 };
 

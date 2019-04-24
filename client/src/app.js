@@ -1,6 +1,7 @@
 const Beaches = require('./models/beaches');
 const BeachesView = require('./views/beaches_view');
 const AddView = require('./views/add_view');
+const EditView = require('./views/edit_view');
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('JS loaded');
@@ -12,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const addBeachForm = document.querySelector('#beach-form');
   const addView = new AddView(addBeachForm);
   addView.bindEvents();
+
+  const editView = new EditView('#edit-form');
+  editView.bindEvents();
 
   const beaches = new Beaches();
   beaches.getData();
