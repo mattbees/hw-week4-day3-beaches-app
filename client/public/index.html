@@ -9,9 +9,35 @@
   <body>
     <div class="ui container">
       <h1>Beaches</h1>
+      <div class="ui container">
+        <button class="ui right floated button" id="add_button">Add new beach</button>
+        <br />
+        <form class="ui form" id="beach-form">
+          <div class="three fields">
+            <div class="field">
+              <label for="name">Name:</label>
+              <input type="text" id="name" placeholder="Beach name" />
+            </div>
+            <div class="field">
+              <label for="grid_ref">Grid reference:</label>
+              <input type="text" id="grid-ref" placeholder="Grid reference" />
+            </div>
+            <div class="field">
+              <label for="swell_frequency">Swell frequency:</label>
+              <select class="dropdown" name="swell_frequency" id="swell_frequency">
+                <option selected disabled>Select swell frequency</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+          <input class="positive ui button" type="submit" id="save" value="Add beach" />
+        </form>
+      </div>
       <h4 class="ui horizontal divider header">
-        <i class="anchor icon"></i>
-        Beaches</h4>
+      <i class="anchor icon"></i>
+      Beaches</h4>
       <div  class="ui cards" id="beaches-container"></div>
     </div>
   </body>

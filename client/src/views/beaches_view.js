@@ -23,8 +23,8 @@ class BeachesView {
 
   createCard(beach) {
     const card = document.createElement('div');
-    card.classList.add('ui');
-    card.classList.add('card'); // necessary because JS won't allow spaces in class name
+    card.classList.add('ui', 'card');
+    // card.classList.add('card'); // necessary because JS won't allow spaces in class name
 
     const content = document.createElement('div');
     content.classList.add('content');
