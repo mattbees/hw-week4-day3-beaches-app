@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const beachesView = new BeachesView(beachesViewElement);
   beachesView.bindEvents();
 
-  const addBeachElement = document.querySelector('#add_button');
-  const addView = new AddView(addBeachElement);
+  const addBeachForm = document.querySelector('#beach-form');
+  const addView = new AddView(addBeachForm);
   addView.bindEvents();
 
   const beaches = new Beaches();

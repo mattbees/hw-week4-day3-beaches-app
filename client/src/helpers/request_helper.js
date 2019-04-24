@@ -18,6 +18,15 @@ class RequestHelper {
       .then((response) => response.json());
   }
 
+  delete() {
+    return fetch(this.url, {
+      method: 'DELETE',
+      // body: JSON.stringify(payload),
+      // headers: { 'Content-Type': 'application/json' }
+    })
+    .then((response) => response.json());
+  }
+
 }
 
 module.exports = RequestHelper;

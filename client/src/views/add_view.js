@@ -1,6 +1,4 @@
-const RequestHelper = require('../helpers/request_helper.js');
-const PubSub = require('../helpers/pub_sub.js');
-
+const Beaches = require('../models/beaches');
 class AddView {
 
   constructor(element) {
@@ -8,18 +6,21 @@ class AddView {
   };
 
   bindEvents() {
-    const formView = document.querySelector('#beach-form');
-    formView.style.visibility = 'hidden';
-    // const formViewDropdown = document.querySelector('.ui', 'dropdown');
-    // formViewDropdown.style.visibility = 'hidden';
+    this.element.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      const newBeach = {};
+      newBeach.name = evt.target['name'].value;
+      newBeach.grid_ref = evt.target['grid_ref'].value;
+      newBeach.swell_frequency = evt.target['swell_frequency'].value;
 
-    this.element.addEventListener('click', (event) => {
-      document.getElementById('swell_frequency').classList.add("ui");
-      this.element.style.visibility = 'hidden';
-      formView.style.visibility = 'visible';
+      const beaches = new Beaches();
+      beaches.postBeach(newBeach);
+      console.dir('ADDVIEW TRIGGERED');
+      this.element.reset();
     });
   };
 
 };
+
 
 module.exports = AddView;
