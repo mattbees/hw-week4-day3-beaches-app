@@ -9,7 +9,7 @@ class EditView {
 
   bindEvents() {
     PubSub.subscribe('BeachesView:edit-beach-selected', (event) => {
-      document.querySelector('#edit_name').placeholder = `${event.detail.name}`;
+      console.log('BeachesView:edit-beach-selected WORKING', event.detail);;
     });
   };
 
